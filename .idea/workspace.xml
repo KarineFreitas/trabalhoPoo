@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/CadItemAcervo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Emprestimo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Livro.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/trabalhoPoo" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="30t4wEMj2xfV6RGq6bHb1bscuCI" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/marlu/Documents/POO/teste/Op_Strings/Op_Strings/TrabalhoPoo/src/Main.java&quot;
+  }
+}</component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="" />
+      <created>1754433772481</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1754433772481</updated>
+    </task>
+    <servers />
+  </component>
+</project>
