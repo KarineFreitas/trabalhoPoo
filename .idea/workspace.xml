@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/CadItemAcervo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Emprestimo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Reserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/trabalhoPoo/src/SistemaDeBiblioteca/Livro.java" afterDir="false" />
+    <list default="true" id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="testando">
+      <change beforePath="$PROJECT_DIR$/trabalhoPoo" beforeDir="false" afterPath="$PROJECT_DIR$/trabalhoPoo" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +13,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/trabalhoPoo" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/KarineFreitas/trabalhoPoo.git",
+    "accountId": "235d59e3-7c0c-48be-b548-345f432cdaec"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -46,6 +50,27 @@
       <option name="presentableId" value="Default" />
       <updated>1754433772481</updated>
     </task>
+    <task id="LOCAL-00001" summary="testando">
+      <option name="closed" value="true" />
+      <created>1754440559093</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754440559093</updated>
+    </task>
+    <task id="LOCAL-00002" summary="testando">
+      <option name="closed" value="true" />
+      <created>1754440589493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1754440589493</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="testando" />
+    <option name="LAST_COMMIT_MESSAGE" value="testando" />
   </component>
 </project>
