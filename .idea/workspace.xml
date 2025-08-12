@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="testando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" afterDir="false" />
@@ -15,6 +16,9 @@
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Reserva.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Usuario.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="testando" />
+>>>>>>> 2aa9a77f45672866e3d67f190186e214c82ff0a3
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
