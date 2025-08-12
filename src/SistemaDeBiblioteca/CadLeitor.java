@@ -19,8 +19,7 @@ public class CadLeitor {
 
     //adicionar um leitor
     public boolean cadastrarLeitor(Leitor leitor) {
-        // Evita duplicatas
-        if (consultarLeitor(leitor) != null) {
+        if (consultarLeitorPorId(leitor.getId()) != null) {
             return false;
         }
         return leitores.add(leitor);
@@ -28,7 +27,7 @@ public class CadLeitor {
     // Atualizar leitor
     public boolean atualizarLeitor(Leitor leitor) {
         for (int i = 0; i < leitores.size(); i++) {
-            if (leitores.get(i).getId() == leitor.getId()) { // ou equals se for String
+            if (leitores.get(i).getId() == leitor.getId()) {
                 leitores.set(i, leitor);
                 return true;
             }
@@ -36,18 +35,18 @@ public class CadLeitor {
         return false; // Não encontrado
     }
     // Excluir leitor
-    public Leitor excluirLeitor(Leitor leitor) {
-        for (int i = 0; i < leitores.size(); i++) {
-            if (leitores.get(i).getId() == leitor.getId()) {
-                return leitores.remove(i);
-            }
+    public boolean excluirLeitor(int id) {
+        Leitor leitorParaExcluir = consultarLeitorPorId(id);
+        if (leitorParaExcluir != null){
+            return leitores.remove(leitorParaExcluir);
         }
-        return null;
+        return false;
     }
+
     // Consultar leitor
-    public Leitor consultarLeitor(Leitor leitor) {
+    public Leitor consultarLeitorPorId(int id) {
         for (Leitor l : leitores) {
-            if (l.getId() == leitor.getId()) {
+            if (l.getId() == id) {
                 return l;
             }
         }

@@ -20,7 +20,7 @@ public class CadFuncionario {
     //adicionar func
     public boolean cadastrarFuncionario(Funcionario funcionario) {
         // Evita duplicatas
-        if (consultarFuncionario(funcionario) != null) {
+        if (consultarFuncionarioPorId(funcionario.getId()) != null) {
             return false;
         }
         return funcionarios.add(funcionario);
@@ -36,18 +36,17 @@ public class CadFuncionario {
         return false; // Não encontrado
     }
     // Excluir func
-    public Funcionario excluirFuncionario(Funcionario funcionario) {
-        for (int i = 0; i < funcionarios.size(); i++) {
-            if (funcionarios.get(i).getId() == funcionario.getId()) {
-                return funcionarios.remove(i);
-            }
+    public boolean excluirFuncionario(int id) {
+        Funcionario funcParaExcluir = consultarFuncionarioPorId(id);
+        if (funcParaExcluir != null){
+            return funcionarios.remove(funcParaExcluir);
         }
-        return null;
+        return false;
     }
     // Consultar func
-    public Funcionario consultarFuncionario(Funcionario funcionario) {
+    public Funcionario consultarFuncionarioPorId(int id) {
         for (Funcionario f : funcionarios) {
-            if (f.getId() == funcionario.getId()) {
+            if (f.getId() == id) {
                 return f;
             }
         }

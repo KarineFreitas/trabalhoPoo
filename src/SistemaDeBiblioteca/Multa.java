@@ -7,6 +7,12 @@ public class Multa {
     private String status;
     private LocalDate data;
 
+    public Multa(double valor, LocalDate data){
+        this.valor = valor;
+        this.data = data;
+        this.status = "PENDENTE";
+    }
+
     public double getValor() {
         return valor;
     }
@@ -20,7 +26,8 @@ public class Multa {
     }
 
     public void pagar() {
-
+        this.status = "Paga";
+        System.out.println("Multa no valor de R$ " + this.valor + "paga com sucesso");
     }
 
 
