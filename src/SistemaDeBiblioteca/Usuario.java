@@ -16,6 +16,9 @@ public abstract class Usuario {
         this.email = email;
         this.senha = senha;
     }
+    public Usuario(){
+
+    }
 
     public int getId() {
         return id;

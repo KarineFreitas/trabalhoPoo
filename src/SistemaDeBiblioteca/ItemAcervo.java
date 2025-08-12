@@ -4,6 +4,14 @@ public class ItemAcervo {
     private Livro livro;
     private String codigo;
 
+    public ItemAcervo(Livro livro, String codigo){
+        this.livro = livro;
+        this.codigo = codigo;
+    }
+    public ItemAcervo(){
+
+    }
+
     public Livro getLivro() {
         return livro;
     }

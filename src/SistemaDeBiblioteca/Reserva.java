@@ -5,6 +5,12 @@ public class Reserva {
     private Usuario usuario;
     private boolean reservado;
 
+    public Reserva (ItemAcervo itemAcervo, Usuario usuario){
+        this.itemAcervo = itemAcervo;
+        this.usuario = usuario;
+    }
+    public Reserva(){
+    }
     public void setItemAcervo(ItemAcervo itemAcervo) {
 
         this.itemAcervo = itemAcervo;

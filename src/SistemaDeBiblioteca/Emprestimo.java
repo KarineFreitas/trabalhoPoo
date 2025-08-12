@@ -1,11 +1,14 @@
 package SistemaDeBiblioteca;
 
+import java.time.LocalDate;
+
+
 public class Emprestimo {
     private ItemAcervo itemAcervo;
     private Usuario usuario;
     private boolean emprestado;
-    private String dataEmprestimo;
-    private String dataDevolucao;
+    private LocalDate dataEmprestimo;
+    private LocalDate dataDevolucao;
 
 
     public ItemAcervo getItemAcervo() {
@@ -32,19 +35,19 @@ public class Emprestimo {
         this.emprestado = emprestado;
     }
 
-    public String getDataEmprestimo() {
+    public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(String dataEmprestimo) {
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
 
-    public String getDataDevolucao() {
+    public LocalDate getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(String dataDevolucao) {
+    public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 

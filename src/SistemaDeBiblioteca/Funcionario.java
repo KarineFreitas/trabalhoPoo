@@ -10,6 +10,9 @@ public class Funcionario extends Usuario {
         this.turno = turno;
         this.salario = salario;
     }
+    public Funcionario(){
+
+    }
 
     public String getTurno() {
         return turno;

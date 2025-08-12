@@ -12,6 +12,9 @@ public class Leitor extends Usuario {
         this.status = "ativo";
         this.multas = new ArrayList<>();
     }
+    public Leitor(){
+
+    }
 
     public String getStatus() {
         return status;

@@ -61,12 +61,6 @@ public class BibliotecaLivroFeliz {
         return new ArrayList<>();
     }
 
-    public void bloquearLeitor(Leitor leitor) {
-    }
-
-    public void desbloquearLeitor(Leitor leitor) {
-    }
-
 
     public static void main(String[] args) {
         BibliotecaLivroFeliz teste = new BibliotecaLivroFeliz();

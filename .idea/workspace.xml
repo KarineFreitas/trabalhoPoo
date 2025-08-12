@@ -7,9 +7,13 @@
     <list default="true" id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="testando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadLeitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadLeitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadFuncionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Emprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Emprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Teste.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Funcionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/ItemAcervo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/ItemAcervo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Leitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Leitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +25,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MarlusCSilva"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MarlusCSilva&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/KarineFreitas/trabalhoPoo.git&quot;,
@@ -53,7 +57,8 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/marlu/Documents/POO/Trabalho/trabalhoPoo",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/karin.KARINE/Desktop/projetoTeste/trabalhoPoo",
     "onboarding.tips.debug.path": "C:/Users/marlu/Documents/POO/teste/Op_Strings/Op_Strings/TrabalhoPoo/src/Main.java",
     "settings.editor.selected.configurable": "settings.sync"
   }
@@ -92,6 +97,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="" />
