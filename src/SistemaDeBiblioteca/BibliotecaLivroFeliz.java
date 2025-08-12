@@ -124,12 +124,6 @@ public class BibliotecaLivroFeliz {
                 case 10:
                     // Chamar consultarMultas()
                     break;
-                case 11:
-                    // Chamar bloquearLeitor()
-                    break;
-                case 12:
-                    // Chamar desbloquearLeitor()
-                    break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
