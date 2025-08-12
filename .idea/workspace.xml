@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53067138-7978-4f07-a79e-c08c0076f2c6" name="Changes" comment="testando">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadItemAcervo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadItemAcervo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadLeitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/CadLeitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Emprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Emprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Funcionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/ItemAcervo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/ItemAcervo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Leitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Leitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Livro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Multa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Multa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Reserva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trabalhoPoo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Teste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +47,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.BibliotecaLivroFeliz.executor": "Run",
+    "Application.Teste.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -67,9 +58,22 @@
     "settings.editor.selected.configurable": "settings.sync"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.BibliotecaLivroFeliz">
     <configuration name="BibliotecaLivroFeliz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SistemaDeBiblioteca.BibliotecaLivroFeliz" />
+      <module name="BibliotecaFeliz" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SistemaDeBiblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SistemaDeBiblioteca.Teste" />
       <module name="BibliotecaFeliz" />
       <extension name="coverage">
         <pattern>
@@ -84,6 +88,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.BibliotecaLivroFeliz" />
+        <item itemvalue="Application.Teste" />
       </list>
     </recent_temporary>
   </component>
@@ -117,16 +122,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testando" />
     <option name="LAST_COMMIT_MESSAGE" value="testando" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/SistemaDeBiblioteca/Usuario.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -9,7 +9,7 @@ public class Emprestimo {
 
 
     public ItemAcervo getItemAcervo() {
-        return ItemAcervo;
+        return itemAcervo;
     }
 
     public void setItemAcervo(ItemAcervo itemAcervo) {
@@ -20,7 +20,7 @@ public class Emprestimo {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
@@ -49,17 +49,8 @@ public class Emprestimo {
     }
 
     public Multa calcularMulta() {
-        LocalData hoje = LocalDate.now();
-        LocalData dataDevolucao = emprestimo.getDataPrevistaDevolucao();
-
-        long diasAtraso = ChronoUnit.DAYS.between(dataDevolucao, hoje);
-
-        if (diasAtraso > 0) {
-            double valor = diasAtraso * 2.50;
-            return new multa();
-        } else {
-            return null;
-        }
+        //
+        return null;
     }
 
 }
