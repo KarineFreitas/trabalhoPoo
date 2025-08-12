@@ -21,6 +21,7 @@ public class BibliotecaLivroFeliz {
     }
 
     public void gerenciarUsuario() {
+
     }
 
     public void gerenciarItemAcervo() {
@@ -59,12 +60,6 @@ public class BibliotecaLivroFeliz {
     public ArrayList<Multa> consultarMultas(Leitor leitor) {
 
         return new ArrayList<>();
-    }
-
-    public void bloquearLeitor(Leitor leitor) {
-    }
-
-    public void desbloquearLeitor(Leitor leitor) {
     }
 
 
