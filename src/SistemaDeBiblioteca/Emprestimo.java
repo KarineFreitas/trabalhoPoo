@@ -11,45 +11,55 @@ public class Emprestimo {
     public ItemAcervo getItemAcervo() {
         return ItemAcervo;
     }
-    public void setItemAcervo(ItemAcervo itemAcervo){
+
+    public void setItemAcervo(ItemAcervo itemAcervo) {
         this.itemAcervo = itemAcervo;
     }
-    public Usuario getUsuario(){
+
+    public Usuario getUsuario() {
         return usuario;
     }
-    public void setUsuario(String usuario){
+
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    public getEmprestado(){
+
+    public boolean getEmprestado() {
         return emprestado;
     }
-    public void setEmprestado(boolean emprestado){
+
+    public void setEmprestado(boolean emprestado) {
         this.emprestado = emprestado;
     }
+
     public String getDataEmprestimo() {
         return dataEmprestimo;
     }
+
     public void setDataEmprestimo(String dataEmprestimo) {
         this.dataEmprestimo = dataEmprestimo;
     }
+
     public String getDataDevolucao() {
         return dataDevolucao;
     }
+
     public void setDataDevolucao(String dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public Multa calcularMulta(Emprestimo emprestimo){
+    public Multa calcularMulta() {
         LocalData hoje = LocalDate.now();
         LocalData dataDevolucao = emprestimo.getDataPrevistaDevolucao();
 
         long diasAtraso = ChronoUnit.DAYS.between(dataDevolucao, hoje);
 
-        if (diasAtraso > 0){
+        if (diasAtraso > 0) {
             double valor = diasAtraso * 2.50;
             return new multa();
         } else {
             return null;
         }
     }
+
 }

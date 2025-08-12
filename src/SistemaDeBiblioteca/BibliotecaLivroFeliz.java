@@ -1,4 +1,5 @@
-package SistemaDeBiblioteca
+package SistemaDeBiblioteca;
+
 import java.util.ArrayList;
 
 public class BibliotecaLivroFeliz {
@@ -45,14 +46,17 @@ public class BibliotecaLivroFeliz {
     }
 
     public Multa calcularMulta(Emprestimo emprestimo) {
+
         return emprestimo.calcularMulta();
     }
 
     public void registrarMulta(Leitor leitor, Multa multa) {
+
         multasRegistradas.add(multa);
     }
 
     public ArrayList<Multa> consultarMultas(Leitor leitor) {
+
         return new ArrayList<>();
     }
 
@@ -63,7 +67,7 @@ public class BibliotecaLivroFeliz {
     }
 
 
-    public public static void main(String[] args) {
+    public static void main(String[] args) {
         BibliotecaLivroFeliz teste = new BibliotecaLivroFeliz();
 
     }

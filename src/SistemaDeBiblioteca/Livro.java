@@ -8,47 +8,51 @@ public class Livro {
     private int edicao;
     private int qtdLivros;
 
-    public String getTitulo(){
+    public String getTitulo() {
         return titulo;
     }
-    public void setTitulo(String titulo){
+
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    public String getAutor(){
+    public String getAutor() {
         return autor;
     }
-    public void setAutor(String autor){
+
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 
-    public String getIsbn(){
+    public String getIsbn() {
         return isbn;
     }
-    public void setIsbn(String isbn){
+
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
-    public String getEditora(){
+    public String getEditora() {
         return editora;
     }
-    public void setEditora(String editora){
+
+    public void setEditora(String editora) {
         this.editora = editora;
     }
 
-    public int getEdicao(){
+    public int getEdicao() {
         return edicao;
     }
-    public void setEdicao(int edicao){
+
+    public void setEdicao(int edicao) {
         this.edicao = edicao;
     }
 
-    public int getQtdLivros(){
+    public int getQtdLivros() {
         return qtdLivros;
     }
-    public void setQtdLivros(int qtdLivros){
+
+    public void setQtdLivros(int qtdLivros) {
         this.qtdLivros = qtdLivros;
     }
-
-
 }

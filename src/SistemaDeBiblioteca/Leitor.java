@@ -1,4 +1,5 @@
 package SistemaDeBiblioteca;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -12,30 +13,32 @@ public class Leitor extends Usuario {
         this.multas = new ArrayList<>();
     }
 
-    public String getStatus(){
+    public String getStatus() {
         return status;
     }
-    public void setStatus(String status){
+
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public List<Multa> getMultas(){
+    public List<Multa> getMultas() {
         return multas;
     }
-    public void adicionarMulta(Multa m){
+
+    public void adicionarMulta(Multa m) {
         multas.add(m);
     }
 
-    public boolean temMultaPendente(){
-        for (Multa multa : multas){
-            if (multa.getStatus().equals("Pendente")){
+    public boolean temMultaPendente() {
+        for (Multa multa : multas) {
+            if (multa.getStatus().equals("Pendente")) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean podeEmprestar(){
+    public boolean podeEmprestar() {
         return status.equals("ativo") && !temMultaPendente();
     }
 }

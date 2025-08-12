@@ -7,19 +7,19 @@ public class Multa {
     private String status;
     private LocalDate data;
 
-    public double getValor(){
+    public double getValor() {
         return valor;
     }
 
-    public String getStatus(){
+    public String getStatus() {
         return status;
     }
 
-    public LocalDate getData(){
+    public LocalDate getData() {
         return data;
     }
 
-    public void pagar(){
+    public void pagar() {
 
     }
 
