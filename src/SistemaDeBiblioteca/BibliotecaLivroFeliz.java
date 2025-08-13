@@ -1,6 +1,5 @@
 package SistemaDeBiblioteca;
 
-import javax.xml.transform.Source;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -12,7 +11,6 @@ public class BibliotecaLivroFeliz {
     private ArrayList<Emprestimo> emprestimosAtivos;
     private ArrayList<Reserva> reservasAtivas;
 
-
     public BibliotecaLivroFeliz() {
         this.cadLeitor = new CadLeitor();
         this.cadFuncionario = new CadFuncionario();
@@ -20,13 +18,54 @@ public class BibliotecaLivroFeliz {
         this.emprestimosAtivos = new ArrayList<>();
         this.reservasAtivas = new ArrayList<>();
 
+        // Adicionando um funcionário padrão para que o login possa ser testado
         cadFuncionario.cadastrarFuncionario(new Funcionario("Integral", 2500, 1, "000.000.000-00", "Admin", "4002-8922", "admin@livrofeliz.com", "admin123"));
+        // Adicionando um leitor padrão para que o login possa ser testado
+        cadLeitor.cadastrarLeitor(new Leitor(101, "111.111.111-11", "João da Silva", "8888-8888", "joao@email.com", "leitor123"));
+    }
+
+    // --- Métodos de Login ---
+
+    private Leitor loginLeitor(Scanner sc) {
+        System.out.println("\n--- Login do Leitor ---");
+        System.out.print("Digite seu ID de leitor: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Digite sua senha: ");
+        String senha = sc.nextLine();
+
+        Leitor leitor = cadLeitor.consultarLeitorPorId(id);
+        if (leitor != null && leitor.getSenha().equals(senha)) {
+            System.out.println("Login bem-sucedido! Bem-vindo(a), " + leitor.getNome() + ".");
+            return leitor;
+        } else {
+            System.out.println("ID ou senha inválidos.");
+            return null;
+        }
+    }
+
+    private Funcionario loginFuncionario(Scanner sc) {
+        System.out.println("\n--- Login de Funcionário ---");
+        System.out.print("Digite seu ID de funcionário: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Digite sua senha: ");
+        String senha = sc.nextLine();
+
+        Funcionario func = cadFuncionario.consultarFuncionarioPorId(id);
+        if (func != null && func.getSenha().equals(senha)) {
+            System.out.println("Login bem-sucedido! Bem-vindo(a), " + func.getNome() + ".");
+            return func;
+        } else {
+            System.out.println("ID ou senha inválidos.");
+            return null;
+        }
     }
 
     // -------Metodos de gerenciamento via menu do funcionario:-----------
 
-    public void gerenciarUsuario(Scanner sc) {
-        System.out.println("Menu para gerenciar os leitores da Biblioteca Feliz:");
+    public void gerenciarLeitores(Scanner sc) {
+        System.out.println("\nMenu para gerenciar os leitores da Biblioteca Feliz:");
         System.out.println("1. Cadastrar Leitor");
         System.out.println("2. Consultar Leitor");
         System.out.println("3. Excluir Leitor");
@@ -34,10 +73,11 @@ public class BibliotecaLivroFeliz {
         int opcao = sc.nextInt();
         sc.nextLine();
 
-        switch (opcao){
+        switch (opcao) {
             case 1:
-                System.out.println("Digite o ID do leitor ");
-                sc.nextLine();
+                System.out.print("Digite o ID do leitor: ");
+                int id = sc.nextInt();
+                sc.nextLine(); // Consome a nova linha
                 System.out.print("Digite o CPF: ");
                 String cpf = sc.nextLine();
                 System.out.print("Digite o Nome: ");
@@ -58,39 +98,38 @@ public class BibliotecaLivroFeliz {
                 break;
 
             case 2:
-                System.out.println("digite o ID do leitor para a consulta: ");
+                System.out.print("digite o ID do leitor para a consulta: ");
                 int idConsulta = sc.nextInt();
                 sc.nextLine();
                 Leitor l = cadLeitor.consultarLeitorPorId(idConsulta);
                 if (l != null) {
                     System.out.println("ID: " + l.getId() + ", Nome: " + l.getNome() + ", Status: " + l.getStatus());
-                    consultarMultas(l);
+                    consultarHistoricoLeitor(l); // Mostra o histórico completo
                 } else {
                     System.out.println("Leitor não encontrado.");
                 }
                 break;
 
             case 3:
-                System.out.println("Digite o ID do leitor que deseja excluir:");
+                System.out.print("Digite o ID do leitor que deseja excluir: ");
                 int idExcluir = sc.nextInt();
                 sc.nextLine();
-                if (cadLeitor.excluirLeitor(idExcluir)){
+                if (cadLeitor.excluirLeitor(idExcluir)) {
                     System.out.println("O leitor foi excluido do sistema com sucesso.");
-                }else {
+                } else {
                     System.out.println("Oops! Erro ao excluir o leitor: Leitor não encontrado no sistema :( ");
                 }
                 break;
             default:
                 System.out.println("Você digitou uma opção inválida! Tente novamente :) ");
-
         }
     }
 
     // ---------------------GERENCIANDO O ACERVO DA BIBLIOTECA------------------------
 
     public void gerenciarItemAcervo(Scanner sc) {
-        System.out.println("Gerenciar o Acervo Biblioteca Livro Feliz: adicione ou remova itens: ");
-        System.out.println("Digite o codigo do livro: ");
+        System.out.println("\nGerenciar o Acervo Biblioteca Livro Feliz: adicione ou remova itens:");
+        System.out.print("Digite o codigo do livro: ");
         String codigo = sc.nextLine();
         ItemAcervo item = cadItemAcervo.consultarItemAcervoPorCodigo(codigo);
         if (item == null) {
@@ -104,12 +143,12 @@ public class BibliotecaLivroFeliz {
             ItemAcervo novoItem = new ItemAcervo(novoLivro, codigo);
             cadItemAcervo.cadastrarItemAcervo(novoItem);
             System.out.println("Item '" + titulo + "' cadastrado com sucesso com o código " + codigo);
-        } else{
-            System.out.println("Este livro já está no acervo. Deseja removê-lo? (s/n): ");
+        } else {
+            System.out.print("Este livro já está no acervo. Deseja removê-lo? (s/n): ");
             String resposta = sc.nextLine();
-            if (resposta.equalsIgnoreCase("s")){
-                if(isItemEmprestado (codigo)){
-                    System.out.println("Não é possível remover do acervo livros que estão emprestados!!");]
+            if (resposta.equalsIgnoreCase("s")) {
+                if (isItemEmprestado(codigo)) {
+                    System.out.println("Não é possível remover do acervo livros que estão emprestados!!");
                 } else {
                     cadItemAcervo.excluirItemAcervo(codigo);
                     System.out.println("O livro foi removido do acervo da Biblioteca Livro Feliz!");
@@ -120,7 +159,7 @@ public class BibliotecaLivroFeliz {
 
     //--------------------GERENCIANDO OS FUNCIONARIOS:---------------------------
 
-    public void gerenciarFuncionarios(Scanner sc){
+    public void gerenciarFuncionarios(Scanner sc) {
         System.out.println("\n--- Menu para gerenciar os funcionários da Biblioteca Livro Feliz ---");
         System.out.println("1. Cadastrar Funcionário");
         System.out.println("2. Consultar Funcionário");
@@ -180,75 +219,66 @@ public class BibliotecaLivroFeliz {
 
     //------------------VERIFICAÇÃO DE LIVROS EMPRESTADOS------------------------------------
 
-    private boolean isItemEmprestado(String codigoItem){
-        for(Emprestimo e : emprestimosAtivos){
-            if(e.getItemAcervo().getCodigo().equals(codigoItem) && e.isEmprestado()){
+    private boolean isItemEmprestado(String codigoItem) {
+        for (Emprestimo e : emprestimosAtivos) {
+            if (e.getItemAcervo().getCodigo().equals(codigoItem) && e.isEmprestado()) {
                 return true;
             }
         }
         return false;
     }
-    //----------------------------------------------------------------------------------------
 
+    //----------------METODOS PARA REALIZAR EMPRESTIMO/DEVOLUÇÃO, RESERVA E MULTA:---------------------------
 
-    //----------------METODOS PARA REALIZAR   EMPRESTIMO/DEVOLUÇÃO OU MULTA:---------------------------
-    public Emprestimo realizarEmprestimo(Scanner sc) {
-        System.out.println("Digite o ID do leitor: ");
-        int idLeitor = sc.nextInt();
-        sc.nextLine();
-        Leitor leitor = cadLeitor.consultarLeitorPorId(idLeitor);
-        if (leitor == null) {
-            System.out.println("Leitor não encontrado.");
-            return null;
-        }
-        //verif. pendencias
-        if (!leitor.podeEmprestar()){
+    public Emprestimo realizarEmprestimo(Scanner sc, Leitor leitor) {
+        // verif. pendencias
+        if (!leitor.podeEmprestar()) {
             System.out.println("Impossibilitado de realizar empréstimos, favor verificar multas pendentes!");
             return null;
         }
 
-        System.out.println("Digite o codigo do item do acervo: ");
+        System.out.print("Digite o codigo do item do acervo: ");
         String codigoItem = sc.nextLine();
         ItemAcervo item = cadItemAcervo.consultarItemAcervoPorCodigo(codigoItem);
         if (item == null) {
             System.out.println("Item não encontrado no acervo.");
             return null;
         }
-        if (isItemEmprestado(codigoItem)){
-            System.out.println("Este livro já está emprestado!");
+        if (isItemEmprestado(codigoItem)) {
+            System.out.println("Este livro já está emprestado! Deseja fazer uma reserva? (s/n)");
+            if (sc.nextLine().equalsIgnoreCase("s")) {
+                realizarReserva(sc, leitor, item);
+            }
             return null;
         }
 
         Emprestimo novoEmprestimo = new Emprestimo(item, leitor);
         emprestimosAtivos.add(novoEmprestimo);
-        System.out.println("Emprestimo do livro '" +item.getLivro().getTitulo() + "' realizado para " + leitor.getNome());
+        leitor.adicionarEmprestimo(novoEmprestimo); // Adiciona ao histórico pessoal do leitor
+        System.out.println("Emprestimo do livro '" + item.getLivro().getTitulo() + "' realizado para " + leitor.getNome());
         System.out.println("Data para devolução: " + novoEmprestimo.getDataDevolucaoPrevista());
         return novoEmprestimo;
     }
 
-
-
-    public Emprestimo realizarDevolucao(Scanner sc) {
+    public Emprestimo realizarDevolucao(Scanner sc, Leitor leitor) {
         System.out.print("Digite o código do item para devolução: ");
         String codigoItem = sc.nextLine();
 
         Emprestimo emprestimoParaDevolver = null;
-        for(Emprestimo emp : emprestimosAtivos){
-            if(emp.getItemAcervo().getCodigo().equals(codigoItem) && emp.isEmprestado()){
+        for (Emprestimo emp : emprestimosAtivos) {
+            if (emp.getLeitor().getId() == leitor.getId() && emp.getItemAcervo().getCodigo().equals(codigoItem) && emp.isEmprestado()) {
                 emprestimoParaDevolver = emp;
                 break;
             }
         }
-        // -----------------------E SEU EU APAGAR ISSO LLKKKKK
+
         if (emprestimoParaDevolver == null) {
-            System.out.println("Nenhum empréstimo ativo encontrado para este item.");
+            System.out.println("Nenhum empréstimo ativo encontrado para este item em seu nome.");
             return null;
         }
-        //--------------------------------------------------------------------
 
         Multa multa = emprestimoParaDevolver.calcularMulta();
-        if (multa != null){
-            Leitor leitor = emprestimoParaDevolver.getLeitor();
+        if (multa != null) {
             leitor.adicionarMulta(multa);
             System.out.println("Devolução feita com atraso! Multa gerada de R$" + multa.getValor() + " para o leitor " + leitor.getNome());
         }
@@ -258,46 +288,69 @@ public class BibliotecaLivroFeliz {
         return emprestimoParaDevolver;
     }
 
-    public void pagarMulta(Scanner sc){
-        System.out.print("Digite o ID do leitor: ");
-        int idLeitor = sc.nextInt();
-        sc.nextLine();
-        Leitor leitor = cadLeitor.consultarLeitorPorId(idLeitor);
-        //-------------------E SE EU APAGAR ESSE IF KKKKKK---------------
-        if (leitor == null) {
-            System.out.println("Leitor não encontrado.");
-            return;
+    public Reserva realizarReserva(Scanner sc, Leitor leitor, ItemAcervo item) {
+        // Verifica se já não há reserva para este item
+        for (Reserva r : reservasAtivas) {
+            if (r.getItemAcervo().getCodigo().equals(item.getCodigo())) {
+                System.out.println("Este item já possui uma reserva ativa.");
+                return null;
+            }
         }
-        //-------------------------------------------------------------------------
+
+        Reserva novaReserva = new Reserva(item, leitor);
+        reservasAtivas.add(novaReserva);
+        System.out.println("Reserva do livro '" + item.getLivro().getTitulo() + "' realizada com sucesso para " + leitor.getNome() + ".");
+        System.out.println("Você será notificado quando o livro for devolvido.");
+        return novaReserva;
+    }
+
+    public void pagarMulta(Scanner sc, Leitor leitor) {
         ArrayList<Multa> multasPendentes = new ArrayList<>();
-        for (Multa m : leitor.getMultas()){
-            if(m.getStatus().equals("Pendente")){
+        for (Multa m : leitor.getMultas()) {
+            if (m.getStatus().equals("Pendente")) {
                 multasPendentes.add(m);
             }
         }
 
-        if (multasPendentes.isEmpty()){
+        if (multasPendentes.isEmpty()) {
             System.out.println("O leitor está em dias e não possui multas pendentes.");
             return;
         }
 
         System.out.println("Multa(s) pendente(s):");
-        for(int i = 0; i < multasPendentes.size(); i++){
-            System.out.println((i+1) + ". Valor: R$" + multasPendentes.get(i).getValor() + ", Data: " + multasPendentes.get(i).getData());
+        for (int i = 0; i < multasPendentes.size(); i++) {
+            System.out.println((i + 1) + ". Valor: R$" + multasPendentes.get(i).getValor() + ", Data: " + multasPendentes.get(i).getData());
         }
 
         System.out.print("Digite o número da multa que deseja pagar (ou 0 para cancelar): ");
         int opcao = sc.nextInt();
         sc.nextLine();
-        if(opcao > 0 && opcao <= multasPendentes.size()){
-            multasPendentes.get(opcao-1).pagar();
+        if (opcao > 0 && opcao <= multasPendentes.size()) {
+            multasPendentes.get(opcao - 1).pagar();
         }
     }
 
-    public void consultarMultas(Leitor leitor) {
-        System.out.println("Histórico de Multas do Leitor: " + leitor.getNome());
+    //----------------- HISTÓRICO DO LEITOR -----------------------
+
+    public void consultarHistoricoLeitor(Leitor leitor) {
+        System.out.println("\n--- Histórico de: " + leitor.getNome() + " ---");
+
+        System.out.println("\n** Empréstimos **");
+
+        if (leitor.getEmprestimos().isEmpty()) {
+            System.out.println("Nenhum empréstimo no seu histórico.");
+        } else {
+            for (Emprestimo emp : leitor.getEmprestimos()) {
+                String status = emp.isEmprestado() ? "Emprestado" : "Devolvido em " + emp.getDataDevolucaoReal();
+                System.out.println("Livro: " + emp.getItemAcervo().getLivro().getTitulo() +
+                        " | Data Empréstimo: " + emp.getDataEmprestimo() +
+                        " | Status: " + status);
+            }
+        }
+
+        System.out.println("\n** Multas **");
         if (leitor.getMultas().isEmpty()) {
-            System.out.println("Nenhuma multa foi registrada para esta leitor.");
+            System.out.println("Nenhuma multa foi registrada para este leitor.");
         } else {
             for (Multa m : leitor.getMultas()) {
                 System.out.println("Data: " + m.getData() + ", Valor: R$" + m.getValor() + ", Status: " + m.getStatus());
@@ -305,74 +358,113 @@ public class BibliotecaLivroFeliz {
         }
     }
 
-    //------------------TA SOBRANDO AQUI Ó----------------------------
 
-    public Reserva realizarReserva() {
-        return null;
-    }
-    //---------------------------------------------------------------------
+    // --- Menus de Navegação ---
 
-
-
-
-    public static void main(String[] args) {
-        BibliotecaLivroFeliz teste = new BibliotecaLivroFeliz();
-        CadLeitor cadastro = new CadLeitor();
-
-        Scanner sc = new Scanner(System.in);
-
+    private void menuLeitor(Scanner sc, Leitor leitor) {
         int opcao;
         do {
-            System.out.println("==== MENU BIBLIOTECA ====");
-            System.out.println("1. Gerenciar Usuário");
-            System.out.println("2. Gerenciar Item do Acervo");
-            System.out.println("3. Realizar Empréstimo");
-            System.out.println("4. Realizar Devolução");
-            System.out.println("5. Realizar Reserva");
-            System.out.println("6. Cancelar Reserva");
-            System.out.println("7. Verificar Multa");
-            System.out.println("8. Calcular Multa");
-            System.out.println("9. Registrar Multa");
-            System.out.println("10. Consultar Multas");
-            System.out.println("0. Sair");
+            System.out.println("\n==== PORTAL DO LEITOR: " + leitor.getNome() + " ====");
+            System.out.println("1. Realizar Empréstimo");
+            System.out.println("2. Realizar Devolução");
+            System.out.println("3. Consultar Meu Histórico (Empréstimos e Multas)");
+            System.out.println("4. Pagar Multa");
+            System.out.println("0. Deslogar");
             System.out.print("Escolha uma opção: ");
-
             opcao = sc.nextInt();
             sc.nextLine();
 
             switch (opcao) {
                 case 1:
-                    //BibliotecaLivroFeliz.gerenciarUsuario();
+                    realizarEmprestimo(sc, leitor);
                     break;
                 case 2:
-                    //biblioteca.gerenciarItemAcervo();
+                    realizarDevolucao(sc, leitor);
                     break;
                 case 3:
-                    //biblioteca.realizarEmprestimo();
+                    consultarHistoricoLeitor(leitor);
                     break;
                 case 4:
-                    //biblioteca.realizarDevolucao();
-                    break;
-                case 5:
-                    //biblioteca.realizarReserva();
-                    break;
-                case 6:
-                    // biblioteca.cancelarReserva();
-                    break;
-                case 7:
-                    // Aqui você poderia pedir o leitor e chamar verificarMulta()
-                    break;
-                case 8:
-                    // Chamar calcularMulta()
-                    break;
-                case 9:
-                    // Chamar registrarMulta()
-                    break;
-                case 10:
-                    // Chamar consultarMultas()
+                    pagarMulta(sc, leitor);
                     break;
                 case 0:
-                    System.out.println("Saindo...");
+                    System.out.println("Deslogando...");
+                    break;
+                default:
+                    System.out.println("Você digitou uma opção inválida! Tente novamente :)");
+            }
+        } while (opcao != 0);
+    }
+
+    private void menuFuncionario(Scanner sc) {
+        int opcao;
+        do {
+            System.out.println("\n==== MENU DO FUNCIONÁRIO ====");
+            System.out.println("1. Gerenciar Leitores");
+            System.out.println("2. Gerenciar Itens do Acervo");
+            System.out.println("3. Gerenciar Funcionários");
+            System.out.println("0. Voltar ao Menu Principal (Deslogar)");
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    gerenciarLeitores(sc);
+                    break;
+                case 2:
+                    gerenciarItemAcervo(sc);
+                    break;
+                case 3:
+                    gerenciarFuncionarios(sc);
+                    break;
+                case 0:
+                    System.out.println("Retornando ao menu principal...");
+                    break;
+                default:
+                    System.out.println("Você digitou uma opção inválida! Tente novamente :)");
+            }
+        } while (opcao != 0);
+    }
+
+    // --- MAIN ---
+
+    public static void main(String[] args) {
+        BibliotecaLivroFeliz biblioteca = new BibliotecaLivroFeliz();
+        Scanner sc = new Scanner(System.in);
+
+        int opcao;
+        do {
+            System.out.println("\n==== BEM-VINDO À BIBLIOTECA LIVRO FELIZ ====");
+            System.out.println("1. Acessar como Leitor");
+            System.out.println("2. Acessar como Funcionário");
+            System.out.println("0. Sair do Sistema");
+            System.out.print("Escolha seu tipo de acesso: ");
+
+            // Validação de entrada para garantir que é um inteiro
+            while (!sc.hasNextInt()) {
+                System.out.println("Entrada inválida. Por favor, digite um número.");
+                sc.next(); // descarta a entrada inválida
+                System.out.print("Escolha seu tipo de acesso: ");
+            }
+            opcao = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    Leitor leitorLogado = biblioteca.loginLeitor(sc);
+                    if (leitorLogado != null) {
+                        biblioteca.menuLeitor(sc, leitorLogado);
+                    }
+                    break;
+                case 2:
+                    Funcionario funcLogado = biblioteca.loginFuncionario(sc);
+                    if (funcLogado != null) {
+                        biblioteca.menuFuncionario(sc);
+                    }
+                    break;
+                case 0:
+                    System.out.println("Obrigado por usar nosso sistema. Até logo!");
                     break;
                 default:
                     System.out.println("Opção inválida!");
