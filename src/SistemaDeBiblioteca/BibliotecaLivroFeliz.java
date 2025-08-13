@@ -1,5 +1,6 @@
 package SistemaDeBiblioteca;
 
+import javax.xml.transform.Source;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ public class BibliotecaLivroFeliz {
         cadFuncionario.cadastrarFuncionario(new Funcionario("Integral", 2500, 1, "000.000.000-00", "Admin", "4002-8922", "admin@livrofeliz.com", "admin123"));
     }
 
-    // Metodos de gerenciamento via menu do funcionario:
+    // -------Metodos de gerenciamento via menu do funcionario:-----------
 
     public void gerenciarUsuario(Scanner sc) {
         System.out.println("Menu para gerenciar os leitores da Biblioteca Feliz:");
@@ -191,40 +192,127 @@ public class BibliotecaLivroFeliz {
 
 
     //----------------METODOS PARA REALIZAR   EMPRESTIMO/DEVOLUÇÃO OU MULTA:---------------------------
-    public Emprestimo realizarEmprestimo() {
-        return null;
+    public Emprestimo realizarEmprestimo(Scanner sc) {
+        System.out.println("Digite o ID do leitor: ");
+        int idLeitor = sc.nextInt();
+        sc.nextLine();
+        Leitor leitor = cadLeitor.consultarLeitorPorId(idLeitor);
+        if (leitor == null) {
+            System.out.println("Leitor não encontrado.");
+            return null;
+        }
+        //verif. pendencias
+        if (!leitor.podeEmprestar()){
+            System.out.println("Impossibilitado de realizar empréstimos, favor verificar multas pendentes!");
+            return null;
+        }
+
+        System.out.println("Digite o codigo do item do acervo: ");
+        String codigoItem = sc.nextLine();
+        ItemAcervo item = cadItemAcervo.consultarItemAcervoPorCodigo(codigoItem);
+        if (item == null) {
+            System.out.println("Item não encontrado no acervo.");
+            return null;
+        }
+        if (isItemEmprestado(codigoItem)){
+            System.out.println("Este livro já está emprestado!");
+            return null;
+        }
+
+        Emprestimo novoEmprestimo = new Emprestimo(item, leitor);
+        emprestimosAtivos.add(novoEmprestimo);
+        System.out.println("Emprestimo do livro '" +item.getLivro().getTitulo() + "' realizado para " + leitor.getNome());
+        System.out.println("Data para devolução: " + novoEmprestimo.getDataDevolucaoPrevista());
+        return novoEmprestimo;
     }
 
-    public Emprestimo realizarDevolucao() {
-        return null;
+
+
+    public Emprestimo realizarDevolucao(Scanner sc) {
+        System.out.print("Digite o código do item para devolução: ");
+        String codigoItem = sc.nextLine();
+
+        Emprestimo emprestimoParaDevolver = null;
+        for(Emprestimo emp : emprestimosAtivos){
+            if(emp.getItemAcervo().getCodigo().equals(codigoItem) && emp.isEmprestado()){
+                emprestimoParaDevolver = emp;
+                break;
+            }
+        }
+        // -----------------------E SEU EU APAGAR ISSO LLKKKKK
+        if (emprestimoParaDevolver == null) {
+            System.out.println("Nenhum empréstimo ativo encontrado para este item.");
+            return null;
+        }
+        //--------------------------------------------------------------------
+
+        Multa multa = emprestimoParaDevolver.calcularMulta();
+        if (multa != null){
+            Leitor leitor = emprestimoParaDevolver.getLeitor();
+            leitor.adicionarMulta(multa);
+            System.out.println("Devolução feita com atraso! Multa gerada de R$" + multa.getValor() + " para o leitor " + leitor.getNome());
+        }
+        emprestimoParaDevolver.devolver();
+        emprestimosAtivos.remove(emprestimoParaDevolver); // Remove da lista de ativos
+        System.out.println("Livro '" + codigoItem + "' devolvido com sucesso.");
+        return emprestimoParaDevolver;
     }
+
+    public void pagarMulta(Scanner sc){
+        System.out.print("Digite o ID do leitor: ");
+        int idLeitor = sc.nextInt();
+        sc.nextLine();
+        Leitor leitor = cadLeitor.consultarLeitorPorId(idLeitor);
+        //-------------------E SE EU APAGAR ESSE IF KKKKKK---------------
+        if (leitor == null) {
+            System.out.println("Leitor não encontrado.");
+            return;
+        }
+        //-------------------------------------------------------------------------
+        ArrayList<Multa> multasPendentes = new ArrayList<>();
+        for (Multa m : leitor.getMultas()){
+            if(m.getStatus().equals("Pendente")){
+                multasPendentes.add(m);
+            }
+        }
+
+        if (multasPendentes.isEmpty()){
+            System.out.println("O leitor está em dias e não possui multas pendentes.");
+            return;
+        }
+
+        System.out.println("Multa(s) pendente(s):");
+        for(int i = 0; i < multasPendentes.size(); i++){
+            System.out.println((i+1) + ". Valor: R$" + multasPendentes.get(i).getValor() + ", Data: " + multasPendentes.get(i).getData());
+        }
+
+        System.out.print("Digite o número da multa que deseja pagar (ou 0 para cancelar): ");
+        int opcao = sc.nextInt();
+        sc.nextLine();
+        if(opcao > 0 && opcao <= multasPendentes.size()){
+            multasPendentes.get(opcao-1).pagar();
+        }
+    }
+
+    public void consultarMultas(Leitor leitor) {
+        System.out.println("Histórico de Multas do Leitor: " + leitor.getNome());
+        if (leitor.getMultas().isEmpty()) {
+            System.out.println("Nenhuma multa foi registrada para esta leitor.");
+        } else {
+            for (Multa m : leitor.getMultas()) {
+                System.out.println("Data: " + m.getData() + ", Valor: R$" + m.getValor() + ", Status: " + m.getStatus());
+            }
+        }
+    }
+
+    //------------------TA SOBRANDO AQUI Ó----------------------------
 
     public Reserva realizarReserva() {
         return null;
     }
+    //---------------------------------------------------------------------
 
-    public Reserva cancelarReserva() {
-        return null;
-    }
 
-    public boolean verificarMulta(Leitor leitor) {
-        return false;
-    }
-
-    public Multa calcularMulta(Emprestimo emprestimo) {
-
-        return emprestimo.calcularMulta();
-    }
-
-    public void registrarMulta(Leitor leitor, Multa multa) {
-
-        multasRegistradas.add(multa);
-    }
-
-    public ArrayList<Multa> consultarMultas(Leitor leitor) {
-
-        return new ArrayList<>();
-    }
 
 
     public static void main(String[] args) {
