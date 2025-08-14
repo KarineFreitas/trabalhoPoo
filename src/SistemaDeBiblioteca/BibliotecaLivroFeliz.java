@@ -35,20 +35,21 @@ public class BibliotecaLivroFeliz {
 
         Leitor leitor = cadLeitor.consultarLeitorPorId(id);
         if (leitor != null && leitor.getSenha().equals(senha)) {
-            System.out.println("Login bem-sucedido! Bem-vindo(a), " + leitor.getNome() + ".");
+            System.out.println("Login bem-sucedido! Bem-vindo(a), " + leitor.getNome());
             return leitor;
         } else {
-            System.out.println("ID ou senha inválidos.");
+            System.out.println("ID ou senha inválidos, tente novamente!.");
             return null;
         }
     }
+    //---------------------------------------------------------------------------------------------------------------
 
     private Funcionario loginFuncionario(Scanner sc) {
-        System.out.println("\n--- Login de Funcionário ---");
+        System.out.println("\n--- Login do Funcionário ---");
         System.out.print("Digite seu ID de funcionário: ");
         int id = sc.nextInt();
         sc.nextLine();
-        System.out.print("Digite sua senha: ");
+        System.out.print("Digite a sua senha: ");
         String senha = sc.nextLine();
 
         Funcionario func = cadFuncionario.consultarFuncionarioPorId(id);
@@ -56,16 +57,17 @@ public class BibliotecaLivroFeliz {
             System.out.println("Login bem-sucedido! Bem-vindo(a), " + func.getNome() + ".");
             return func;
         } else {
-            System.out.println("ID ou senha inválidos.");
+            System.out.println("ID ou senha inválidos, tente novamente!.");
             return null;
         }
     }
+    //----------------------------------------------------------------------------------------------------------------
 
     public void gerenciarLeitores(Scanner sc) {
-        System.out.println("\nMenu para gerenciar os leitores da Biblioteca Feliz:");
-        System.out.println("1. Cadastrar Leitor");
-        System.out.println("2. Consultar Leitor");
-        System.out.println("3. Excluir Leitor");
+        System.out.println("\nMenu para gerenciar os leitores da Biblioteca Livro Feliz:");
+        System.out.println("1. Cadastrar um Leitor");
+        System.out.println("2. Consultar um Leitor");
+        System.out.println("3. Excluir um Leitor");
         System.out.print("Escolha uma opção acima: ");
         int opcao = sc.nextInt();
         sc.nextLine();
@@ -389,6 +391,9 @@ public class BibliotecaLivroFeliz {
                     pagarMulta(sc, leitor);
                     break;
                 case 5:
+<<<<<<< HEAD
+                    realizarReserva(sc, leitor, item);
+=======
                     System.out.println("--- Realizar Reserva ---");
                     System.out.print("Digite o codigo do livro que deseja reservar: ");
                     String codigoDesejado = sc.nextLine();
@@ -399,6 +404,7 @@ public class BibliotecaLivroFeliz {
                     } else {
                         System.out.println("Item com o código '" + codigoDesejado + "' não encontrado no acervo. Tente novamente.");
                     }
+>>>>>>> ae96d9f200f009cbbc2849b7b5d1aaa2af313ff4
                     break;
                 case 0:
                     System.out.println("Deslogando...");
