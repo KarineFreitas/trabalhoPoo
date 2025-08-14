@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b4c3f2c1-8634-4aec-981f-36d6b285fd71" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrabalhoPoo.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/BibliotecaLivroFeliz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SistemaDeBiblioteca/Livro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,36 +17,36 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MarlusCSilva"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MarlusCSilva&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/KarineFreitas/trabalhoPoo.git",
-    "accountId": "235d59e3-7c0c-48be-b548-345f432cdaec"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KarineFreitas/trabalhoPoo.git&quot;,
+    &quot;accountId&quot;: &quot;235d59e3-7c0c-48be-b548-345f432cdaec&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="31Fx5TeEtvnMBjtBb4b67SdrO0T" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BibliotecaLivroFeliz.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/marlu/Documents/POO/Trabalho/trabalhoPoo"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BibliotecaLivroFeliz.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/marlu/Documents/POO/Trabalho/trabalhoPoo&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="BibliotecaLivroFeliz" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SistemaDeBiblioteca.BibliotecaLivroFeliz" />

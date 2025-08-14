@@ -130,14 +130,31 @@ public class BibliotecaLivroFeliz {
         if (item == null) {
             System.out.print("Título do livro: ");
             String titulo = sc.nextLine();
+
             System.out.print("Autor do livro: ");
             String autor = sc.nextLine();
+
+            System.out.print("Isbn do livro: ");
+            String isbn = sc.nextLine();
+
+            System.out.print("Editora: ");
+            String editora = sc.nextLine();
+
+            System.out.print("Edição do livro: ");
+            String edicao = sc.nextLine();
+
             Livro novoLivro = new Livro();
+
             novoLivro.setTitulo(titulo);
             novoLivro.setAutor(autor);
+            novoLivro.setAutor(isbn);
+            novoLivro.setAutor(editora);
+            novoLivro.setAutor(edicao);
+
             ItemAcervo novoItem = new ItemAcervo(novoLivro, codigo);
             cadItemAcervo.cadastrarItemAcervo(novoItem);
             System.out.println("Item '" + titulo + "' cadastrado com sucesso com o código " + codigo);
+
         } else {
             System.out.print("Este livro já está no acervo. Deseja removê-lo? (s/n): ");
             String resposta = sc.nextLine();

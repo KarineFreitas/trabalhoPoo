@@ -47,12 +47,4 @@ public class Livro {
     public void setEdicao(int edicao) {
         this.edicao = edicao;
     }
-
-    public int getQtdLivros() {
-        return qtdLivros;
-    }
-
-    public void setQtdLivros(int qtdLivros) {
-        this.qtdLivros = qtdLivros;
-    }
 }
