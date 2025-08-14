@@ -283,13 +283,12 @@ public class BibliotecaLivroFeliz {
             System.out.println("Devolução feita com atraso! Multa gerada de R$" + multa.getValor() + " para o leitor " + leitor.getNome());
         }
         emprestimoParaDevolver.devolver();
-        emprestimosAtivos.remove(emprestimoParaDevolver); // Remove da lista de ativos
+        emprestimosAtivos.remove(emprestimoParaDevolver);
         System.out.println("Livro '" + codigoItem + "' devolvido com sucesso.");
         return emprestimoParaDevolver;
     }
 
     public Reserva realizarReserva(Scanner sc, Leitor leitor, ItemAcervo item) {
-        // Verifica se já não há reserva para este item
         for (Reserva r : reservasAtivas) {
             if (r.getItemAcervo().getCodigo().equals(item.getCodigo())) {
                 System.out.println("Este item já possui uma reserva ativa.");
@@ -427,7 +426,6 @@ public class BibliotecaLivroFeliz {
         } while (opcao != 0);
     }
 
-    // --- MAIN ---
 
     public static void main(String[] args) {
         BibliotecaLivroFeliz biblioteca = new BibliotecaLivroFeliz();
@@ -441,10 +439,10 @@ public class BibliotecaLivroFeliz {
             System.out.println("0. Sair do Sistema");
             System.out.print("Escolha seu tipo de acesso: ");
 
-            // Validação de entrada para garantir que é um inteiro
+
             while (!sc.hasNextInt()) {
                 System.out.println("Entrada inválida. Por favor, digite um número.");
-                sc.next(); // descarta a entrada inválida
+                sc.next();
                 System.out.print("Escolha seu tipo de acesso: ");
             }
             opcao = sc.nextInt();

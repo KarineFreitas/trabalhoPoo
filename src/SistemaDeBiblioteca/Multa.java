@@ -30,5 +30,4 @@ public class Multa {
         System.out.println("Multa no valor de R$ " + this.valor + "paga com sucesso");
     }
 
-
 }
