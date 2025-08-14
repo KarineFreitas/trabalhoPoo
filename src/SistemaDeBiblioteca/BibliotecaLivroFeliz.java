@@ -292,7 +292,7 @@ public class BibliotecaLivroFeliz {
     public void pagarMulta(Scanner sc, Leitor leitor) {
         ArrayList<Multa> multasPendentes = new ArrayList<>();
         for (Multa m : leitor.getMultas()) {
-            if (m.getStatus().equals("Pendente")) {
+            if (!m.getStatus()) {
                 multasPendentes.add(m);
             }
         }
