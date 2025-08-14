@@ -9,7 +9,6 @@ public class CadItemAcervo {
         this.itensAcervo = new ArrayList<>();
     }
 
-
     public ArrayList<ItemAcervo> getItensAcervo() {
         return itensAcervo;
     }
@@ -21,18 +20,9 @@ public class CadItemAcervo {
     public boolean cadastrarItemAcervo(ItemAcervo itemAcervo) {
 
         if(consultarItemAcervoPorCodigo(itemAcervo.getCodigo()) != null){
-            return false; //para evitar duplicatas de codigo
+            return false;
         }
         return itensAcervo.add(itemAcervo);
-    }
-
-    public boolean atualizarItemAcervo(String codigo, ItemAcervo novoItemAcervo) {
-        for (int i = 0; i < itensAcervo.size(); i++){
-            if(itensAcervo.get(i).getCodigo().equals(codigo)){
-                itensAcervo.set(i, novoItemAcervo);
-            }return true;
-        }
-        return true; //nao achou :(
     }
 
     public boolean excluirItemAcervo(String codigo) {
