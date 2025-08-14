@@ -46,7 +46,7 @@ public class Leitor extends Usuario {
 
     public boolean temMultaPendente() {
         for (Multa multa : multas) {
-            if (multa.getStatus().equals("Pendente")) {
+            if (!multa.getStatus()) {
                 return true;
             }
         }

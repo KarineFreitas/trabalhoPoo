@@ -8,7 +8,11 @@ public class Reserva {
     public Reserva (ItemAcervo itemAcervo, Usuario usuario){
         this.itemAcervo = itemAcervo;
         this.usuario = usuario;
+<<<<<<< HEAD
         this.reservado = true; //iniciando como reservado
+=======
+        this.reservado = true;
+>>>>>>> 77e118c6e5937d67ca4971534dffa8ec5bf21a04
     }
     public Reserva(){
     }

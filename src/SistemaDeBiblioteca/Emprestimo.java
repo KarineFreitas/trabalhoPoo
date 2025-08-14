@@ -53,7 +53,6 @@ public class Emprestimo {
     }
 
     public Multa calcularMulta() {
-        //se a devolução ocorrer apos data prrevista
         if (LocalDate.now().isAfter(dataDevolucaoPrevista)){
             long diasAtraso = ChronoUnit.DAYS.between(dataDevolucaoPrevista,LocalDate.now());
             if(diasAtraso > 0){
@@ -61,7 +60,7 @@ public class Emprestimo {
                 return new Multa(valorMulta, LocalDate.now());
             }
         }
-        return null; //nenhuma multa
+        return null;
     }
 
 }

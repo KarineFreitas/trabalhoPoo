@@ -4,7 +4,6 @@ public class Funcionario extends Usuario {
     private String turno;
     private double salario;
 
-
     public Funcionario(String turno, double salario, int id, String cpf, String nome, String telefone, String email, String senha) {
         super(id, cpf, nome, telefone, email, senha);
         this.turno = turno;

@@ -4,20 +4,20 @@ import java.time.LocalDate;
 
 public class Multa {
     private double valor;
-    private String status;
+    private boolean status;
     private LocalDate data;
 
     public Multa(double valor, LocalDate data){
         this.valor = valor;
         this.data = data;
-        this.status = "PENDENTE";
+        this.status = false;
     }
 
     public double getValor() {
         return valor;
     }
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -26,9 +26,15 @@ public class Multa {
     }
 
     public void pagar() {
-        this.status = "Paga";
-        System.out.println("Multa no valor de R$ " + this.valor + "paga com sucesso");
+        this.status = true;
+        System.out.println("Multa no valor de R$ " + this.valor + " paga com sucesso");
     }
-
+    public String getStatusString() {
+        if (this.status) {
+            return "pago";
+        } else {
+            return "pendente";
+        }
+    }
 
 }

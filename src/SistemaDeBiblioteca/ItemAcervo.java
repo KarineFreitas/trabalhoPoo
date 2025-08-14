@@ -11,7 +11,6 @@ public class ItemAcervo {
     public ItemAcervo(){
 
     }
-
     public Livro getLivro() {
         return livro;
     }
