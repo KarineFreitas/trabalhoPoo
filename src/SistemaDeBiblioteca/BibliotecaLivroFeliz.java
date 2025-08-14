@@ -18,13 +18,11 @@ public class BibliotecaLivroFeliz {
         this.emprestimosAtivos = new ArrayList<>();
         this.reservasAtivas = new ArrayList<>();
 
-        // Adicionando um funcionário padrão para que o login possa ser testado
         cadFuncionario.cadastrarFuncionario(new Funcionario("Integral", 2500, 1, "000.000.000-00", "Admin", "4002-8922", "admin@livrofeliz.com", "admin123"));
-        // Adicionando um leitor padrão para que o login possa ser testado
         cadLeitor.cadastrarLeitor(new Leitor(101, "111.111.111-11", "João da Silva", "8888-8888", "joao@email.com", "leitor123"));
     }
 
-    // --- Métodos de Login ---
+    // -------------------------------------------------------------------------------------------------------------
 
     private Leitor loginLeitor(Scanner sc) {
         System.out.println("\n--- Login do Leitor ---");
@@ -369,6 +367,7 @@ public class BibliotecaLivroFeliz {
             System.out.println("2. Realizar Devolução");
             System.out.println("3. Consultar Meu Histórico (Empréstimos e Multas)");
             System.out.println("4. Pagar Multa");
+            System.out.println("5. Reservar Livro");
             System.out.println("0. Deslogar");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
@@ -387,6 +386,9 @@ public class BibliotecaLivroFeliz {
                 case 4:
                     pagarMulta(sc, leitor);
                     break;
+                case 5:
+                    realizarReserva(sc, leitor, item);
+                    break;
                 case 0:
                     System.out.println("Deslogando...");
                     break;
@@ -395,6 +397,7 @@ public class BibliotecaLivroFeliz {
             }
         } while (opcao != 0);
     }
+
 
     private void menuFuncionario(Scanner sc) {
         int opcao;
