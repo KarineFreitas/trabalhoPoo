@@ -22,11 +22,9 @@ public class BibliotecaLivroFeliz {
         cadLeitor.cadastrarLeitor(new Leitor(101, "111.111.111-11", "João da Silva", "8888-8888", "joao@email.com", "leitor123"));
     }
 
-<<<<<<< HEAD
+
     // -------------------------------------------------------------------------------------------------------------
 
-=======
->>>>>>> 77e118c6e5937d67ca4971534dffa8ec5bf21a04
     private Leitor loginLeitor(Scanner sc) {
         System.out.println("\n--- Login do Leitor ---");
         System.out.print("Digite seu ID de leitor: ");
@@ -374,7 +372,7 @@ public class BibliotecaLivroFeliz {
                     pagarMulta(sc, leitor);
                     break;
                 case 5:
-                    realizarReserva(sc, leitor, item);
+                    //realizarReserva(sc, leitor, item);
                     break;
                 case 0:
                     System.out.println("Deslogando...");
