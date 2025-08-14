@@ -372,7 +372,16 @@ public class BibliotecaLivroFeliz {
                     pagarMulta(sc, leitor);
                     break;
                 case 5:
-                    //realizarReserva(sc, leitor, item);
+                    System.out.println("--- Realizar Reserva ---");
+                    System.out.print("Digite o codigo do livro que deseja reservar: ");
+                    String codigoDesejado = sc.nextLine();
+
+                    ItemAcervo item = cadItemAcervo.consultarItemAcervoPorCodigo(codigoDesejado);
+                    if (item != null) {
+                        realizarReserva(sc, leitor, item);
+                    } else {
+                        System.out.println("Item com o código '" + codigoDesejado + "' não encontrado no acervo. Tente novamente.");
+                    }
                     break;
                 case 0:
                     System.out.println("Deslogando...");
