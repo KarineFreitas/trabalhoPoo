@@ -6,7 +6,6 @@ public class Livro {
     private String isbn;
     private String editora;
     private int edicao;
-    private int qtdLivros;
 
     public String getTitulo() {
         return titulo;

@@ -22,9 +22,6 @@ public class BibliotecaLivroFeliz {
         cadLeitor.cadastrarLeitor(new Leitor(101, "111.111.111-11", "João da Silva", "8888-8888", "joao@email.com", "leitor123"));
     }
 
-
-    // -------------------------------------------------------------------------------------------------------------
-
     private Leitor loginLeitor(Scanner sc) {
         System.out.println("\n--- Login do Leitor ---");
         System.out.print("Digite seu ID de leitor: ");
@@ -42,7 +39,7 @@ public class BibliotecaLivroFeliz {
             return null;
         }
     }
-    //---------------------------------------------------------------------------------------------------------------
+
 
     private Funcionario loginFuncionario(Scanner sc) {
         System.out.println("\n--- Login do Funcionário ---");
@@ -61,7 +58,6 @@ public class BibliotecaLivroFeliz {
             return null;
         }
     }
-    //----------------------------------------------------------------------------------------------------------------
 
     public void gerenciarLeitores(Scanner sc) {
         System.out.println("\nMenu para gerenciar os leitores da Biblioteca Livro Feliz:");
@@ -143,15 +139,15 @@ public class BibliotecaLivroFeliz {
             String editora = sc.nextLine();
 
             System.out.print("Edição do livro: ");
-            String edicao = sc.nextLine();
+            int edicao = sc.nextInt();
 
             Livro novoLivro = new Livro();
 
             novoLivro.setTitulo(titulo);
             novoLivro.setAutor(autor);
-            novoLivro.setAutor(isbn);
-            novoLivro.setAutor(editora);
-            novoLivro.setAutor(edicao);
+            novoLivro.setIsbn(isbn);
+            novoLivro.setEditora(editora);
+            novoLivro.setEdicao(edicao);
 
             ItemAcervo novoItem = new ItemAcervo(novoLivro, codigo);
             cadItemAcervo.cadastrarItemAcervo(novoItem);
@@ -189,6 +185,8 @@ public class BibliotecaLivroFeliz {
                 String nome = sc.nextLine();
                 System.out.print("Digite o turno do novo funcionario: ");
                 String turno = sc.nextLine();
+                System.out.print("Digite o cpf do novo funcionario: ");
+                String cpf = sc.nextLine();
                 System.out.print("Digite uma senha para o acesso do funcionario: ");
                 String senha = sc.nextLine();
 
@@ -196,6 +194,7 @@ public class BibliotecaLivroFeliz {
                 novoFunc.setId(id);
                 novoFunc.setNome(nome);
                 novoFunc.setTurno(turno);
+                novoFunc.setCpf(cpf);
                 novoFunc.setSenha(senha);
                 if (cadFuncionario.cadastrarFuncionario(novoFunc)) {
                     System.out.println("Funcionário cadastrado com sucesso!");
@@ -209,7 +208,7 @@ public class BibliotecaLivroFeliz {
                 sc.nextLine();
                 Funcionario f = cadFuncionario.consultarFuncionarioPorId(idConsulta);
                 if (f != null) {
-                    System.out.println("ID: " + f.getId() + ", Nome: " + f.getNome());
+                    System.out.println("ID: " + f.getId() + ", Nome: " + f.getNome() + ", Turno: " + f.getTurno() + ", Cpf: " + f.getCpf() + ", senha: " + f.getSenha());
                 } else {
                     System.out.println("Funcionário não encontrado.");
                 }
@@ -419,7 +418,7 @@ public class BibliotecaLivroFeliz {
         do {
             System.out.println("\n==== MENU DO FUNCIONÁRIO ====");
             System.out.println("1. Gerenciar Leitores");
-            System.out.println("2. Gerenciar Itens do Acervo");
+            System.out.println("2. Gerenciar Itens do Acervo (adicionar ou remover)");
             System.out.println("3. Gerenciar Funcionários");
             System.out.println("0. Voltar ao Menu Principal (Deslogar)");
             System.out.print("Escolha uma opção: ");
